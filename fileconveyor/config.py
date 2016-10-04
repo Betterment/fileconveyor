@@ -234,7 +234,7 @@ if __name__ == '__main__':
 
     # Use the Config class.
     config = Config("test")
-    config.load("config.xml")
+    config.load("/etc/fileconveyor.xml")
     print "ignoredDirs", config.ignored_dirs
     print "sources", config.sources
     print "servers", config.servers

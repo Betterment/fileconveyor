@@ -1,4 +1,5 @@
 # Dummy settings for `django-storages`.
+SECRET_KEY='password'
 MEDIA_URL=''
 MEDIA_ROOT=''
 # `backends/ftp.py`
@@ -12,3 +13,4 @@ SFTP_STORAGE_HOST=''
 CUMULUS_API_KEY = '';
 CUMULUS_USERNAME = '';
 CUMULUS_CONTAINER = '';
+

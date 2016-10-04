@@ -18,7 +18,7 @@ FILE_CONVEYOR_PATH = os.path.abspath(os.path.dirname(__file__))
 # HACK to make sure that Django-related libraries can be loaded: include dummy
 # settings if necessary.
 if not 'DJANGO_SETTINGS_MODULE' in os.environ:
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'fileconveyor.django_settings'
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'django_settings'
 
 
 from settings import *
@@ -261,7 +261,7 @@ class Arbitrator(threading.Thread):
         # Monitor all sources' scan paths.
         for source in self.config.sources.values():
             self.logger.info("Setup: monitoring '%s' (%s)." % (source["scan_path"], source["name"]))
-            self.fsmonitor.add_dir(source["scan_path"], FSMonitor.CREATED | FSMonitor.MODIFIED | FSMonitor.DELETED)
+            self.fsmonitor.add_dir(source["scan_path"], FSMonitor.CREATED | FSMonitor.MODIFIED)
 
 
     def run(self):
