@@ -76,7 +76,7 @@ class Arbitrator(threading.Thread):
     PROCESSED_FOR_ANY_SERVER = None
 
 
-    def __init__(self, configfile="config.xml", restart=False):
+    def __init__(self, configfile="/etc/fileconveyor.xml", restart=False):
         threading.Thread.__init__(self, name="ArbitratorThread")
         self.lock = threading.Lock()
         self.die = False
@@ -1170,7 +1170,7 @@ class Arbitrator(threading.Thread):
 
 def run_file_conveyor(restart=False):
     try:
-        arbitrator = Arbitrator(os.path.join(FILE_CONVEYOR_PATH, "config.xml"), restart)
+        arbitrator = Arbitrator("/etc/fileconveyor.xml", restart)
     except ArbitratorInitError, e:
         print e.__class__.__name__, e
     except ArbitratorError, e:
